@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Proto\FAQControllerAndActionName.proto" />
+    <None Remove="Proto\ResolveReport.proto" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+	  <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.57.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+  	<ItemGroup>
+		<ProjectReference Include="..\FQA.Domain\FAQ.Domain.csproj" />
+	</ItemGroup>
+      	<ItemGroup>
+		<ProjectReference Include="..\FQA.InfraStructure\FAQ.InfraStructure.csproj" />
+	</ItemGroup>
+      	<ItemGroup>
+      	  <Protobuf Include="Proto\FAQControllerAndActionName.proto" GrpcServices="Server" />
+      	  <Protobuf Include="Proto\ResolveReport.proto" GrpcServices="Server" />
+      	</ItemGroup>
+</Project>

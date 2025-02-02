@@ -1,0 +1,14 @@
+﻿global using FAQ.Domain.Models;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Infrastructure;
+global using Microsoft.EntityFrameworkCore.Migrations;
+global using FAQ.InfraStructure.Context;
+global using Microsoft.EntityFrameworkCore.Storage;
+global using Domain.Enums;
+global using Infrastructure.GenericRepo;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using ResponseDto;
+global using System.Linq.Expressions;
+global using System.Reflection;
+global using FAQ.Infrastructure.Helpers;
+global using System.Security.Claims;
