@@ -1,0 +1,20 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ "Development" ]
+jobs:
+  build:
+    runs-on:
+      - win-dev
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        cd 'DockerTest\DockerTest'
+        docker build .  -t dockerTest:latest
+        cd 'C:\developing\docker\newApi'
+        
+        docker-compose down 
+        docker-compose up --detach
+
+        
