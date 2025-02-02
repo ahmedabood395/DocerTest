@@ -1,20 +1,24 @@
-name: Docker Image CI
+name: Build and Publish image to Docker Hub
 on:
   push:
-    branches: [ "Development" ]
-jobs:
-  build:
-    runs-on:
-      - win-dev
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: |
-        cd 'DockerTest\DockerTest'
-        docker build .  -t dockerTest:latest
-        cd 'C:\developing\docker\newApi'
-        
-        docker-compose down 
-        docker-compose up --detach
+    branches:
+      - main
+    paths:
+      - 'DockerTest/Dockerfile'
+      
 
-        
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build image
+        run: |
+          docker build ./DockerTest/ -t mohamedoweis/TestV1:latest
+         
+      - name: push image to docker hub
+        run: |
+          docker login -u mohamedoweis -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push mohamedoweis/TestV1:latest
+          
