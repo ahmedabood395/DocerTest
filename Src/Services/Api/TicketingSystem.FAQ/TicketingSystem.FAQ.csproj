@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>687acc70-a9ef-413e-8d5a-373b58bb2c6f</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="4EPlatform.PermissionsGroupingChecker" Version="1.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.58.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.59.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.13" />
+
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+	  <PackageReference Include="PremessionRegister" Version="1.0.0" />
+	  <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+	  <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Core\4EPlatform.PermissionsChecker\4EPlatform.PermissionsChecker.csproj" />
+		<ProjectReference Include="..\..\Core\FQA.InfraStructure\FAQ.InfraStructure.csproj" />
+	</ItemGroup>
+    	<ItemGroup>
+		<ProjectReference Include="..\..\Core\FQA.Application\FAQ.Application.csproj" />
+	</ItemGroup>
+    	<ItemGroup>
+    	  <Folder Include="wwwroot\Uploads\" />
+    	</ItemGroup>
+    	<ItemGroup>
+    	  <Content Update="wwwroot\FileName.txt">
+    	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    	  </Content>
+    	</ItemGroup>
+</Project>
