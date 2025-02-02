@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v4
       - name: build image
         run: |
-          docker build ./DockerTest/ -t mohamedoweis/TestV1:latest
+          docker build ./DockerTest/ -t mohamedoweis/ticketingfaq:latest
          
       - name: push image to docker hub
         run: |
           docker login -u mohamedoweis -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push mohamedoweis/TestV1:latest
+          docker push mohamedoweis/ticketingfaq:latest
           
