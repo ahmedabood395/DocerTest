@@ -14,14 +14,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Get Version (Git Commit SHA and Date)
-      run: echo "IMAGE_TAG=$(date +%Y%m%d)-${GITHUB_SHA::7}" >> $GITHUB_ENV
+    - name: Generate Date-Time Tag
+      run: echo "IMAGE_TAG=$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag mohamedoweis/ticketingsystem:$IMAGE_TAG
     - name: push image to docker hub
       run: |
           docker login -u mohamedoweis -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push mohamedoweis/ticketingsystem:latest  
+          docker push mohamedoweis/ticketingsystem:$IMAGE_TAG  
 
 
 
