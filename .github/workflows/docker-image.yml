@@ -24,7 +24,7 @@ jobs:
           docker push mohamedoweis/ticketingsystem:$IMAGE_TAG  
     
     - name: Trigger Deployment on Server
-      run: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.SERVER_IP }} "docker pull mohamedoweis/ticketingsystem:$IMAGE_TAG && docker stop mohamedoweis/ticketingsystem || true && docker rm mohamedoweis/ticketingsystem || true && docker run -d --name mohamedoweis/ticketingsystem  mohamedoweis/ticketingsystem:$IMAGE_TAG"
+      run: ssh -o StrictHostKeyChecking=no Administrator@${{ secrets.SERVER_IP }} "docker pull mohamedoweis/ticketingsystem:$IMAGE_TAG && docker stop mohamedoweis/ticketingsystem || true && docker rm mohamedoweis/ticketingsystem || true && docker run -d --name mohamedoweis/ticketingsystem  mohamedoweis/ticketingsystem:$IMAGE_TAG"
 
 
 
