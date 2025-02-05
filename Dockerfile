@@ -23,3 +23,6 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "TicketingSystem.FAQ.dll"]
+
+
+
